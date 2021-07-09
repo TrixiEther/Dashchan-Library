@@ -1,0 +1,8 @@
+apply plugin: 'chan-library'
+
+group = 'chan.library'
+version = 0
+
+dependencies {
+	compileOnly project(':libraries:api')
+}

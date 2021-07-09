@@ -1,0 +1,16 @@
+/*
+!/.gitignore
+!/build.gradle
+!/COPYING
+!/libraries
+/libraries/*/*
+!/libraries/*/build.gradle
+!/libraries/*/res
+!/libraries/*/src
+!/plugins
+/plugins/*
+!/plugins/build.gradle
+!/plugins/settings.gradle
+!/plugins/src
+!/README.md
+!/settings.gradle

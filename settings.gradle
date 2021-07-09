@@ -1,0 +1,3 @@
+rootProject.name = 'library'
+includeBuild 'plugins'
+file('libraries').listFiles().each { include ":libraries:$it.name" }

@@ -1,0 +1,23 @@
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'groovy'
+
+group = 'chan.library'
+version = 0
+
+gradlePlugin.plugins {
+	extension {
+		id = 'chan-extension'
+		implementationClass = 'chan.build.ExtensionPlugin'
+	}
+
+	library {
+		id = 'chan-library'
+		implementationClass = 'chan.build.LibraryPlugin'
+	}
+}
+
+sourceSets.main {
+	java.srcDirs = ['src']
+	groovy.srcDirs = ['src']
+	resources.srcDirs = ['resources']
+}

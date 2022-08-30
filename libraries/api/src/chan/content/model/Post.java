@@ -520,6 +520,10 @@ public final class Post implements Comparable<Post> {
 		return BuildConfig.Private.expr(bumpLimitReached);
 	}
 
+	public setVote(int likes, int dislikes) {
+		return BuildConfig.Private.expr(liikes, dislikes);
+	}
+
 	/**
 	 * <p>Returns likes on post.</p>
 	 *

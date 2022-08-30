@@ -1,5 +1,7 @@
 package chan.content.model;
 
+import chan.library.api.BuildConfig;
+
 /**
  * <p>Model containing votes data.</p>
  *

@@ -523,12 +523,11 @@ public final class Post implements Comparable<Post> {
 	/**
 	 * <p>Set vote data.</p>
 	 *
-	 * @param likes Likes count.
-	 * @param dislikes Dislikes count
+	 * @param vote Vote result.
 	 * @return This model.
 	 */
-	public Post setVote(int likes, int dislikes) {
-		return BuildConfig.Private.expr(liikes, dislikes);
+	public Post setVote(Vote vote) {
+		return BuildConfig.Private.expr(vote);
 	}
 
 	/**

@@ -526,8 +526,8 @@ public final class Post implements Comparable<Post> {
 	 * @param vote Vote result.
 	 * @return This model.
 	 */
-	public Post setVote(Vote vote) {
-		return BuildConfig.Private.expr(vote);
+	public Post setVote(int like, int dislike) {
+		return BuildConfig.Private.expr(like, dislike);
 	}
 
 	/**

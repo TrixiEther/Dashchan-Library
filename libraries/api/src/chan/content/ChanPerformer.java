@@ -337,13 +337,29 @@ public class ChanPerformer {
 	 *
 	 * <p>You can throw {@link ApiException} with {@code REPORT_*} error types.</p>
 	 *
-	 * @param data {@link SendDeletePostsData} instance with arguments.
+	 * @param data {@link SendReportPostsData} instance with arguments.
 	 * @return {@link SendReportPostsResult} instance.
 	 * @throws HttpException if HTTP or another error with message occurred.
 	 * @throws ApiException if reporting wasn't complete due to user errors.
 	 * @throws InvalidResponseException if server returns an invalid data.
 	 */
 	public SendReportPostsResult onSendReportPosts(SendReportPostsData data) throws HttpException, ApiException,
+			InvalidResponseException {
+		return BuildConfig.Private.expr(data);
+	}
+
+	/**
+	 * <p>Calls when application requests chan to send vote.</p>
+	 *
+	 * <p>You can throw {@link ApiException} with {@code VOTE_*} error types.</p>
+	 *
+	 * @param data {@link SendVotePostData} instance with arguments.
+	 * @return {@link SendVotePostResult} instance.
+	 * @throws HttpException if HTTP or another error with message occurred.
+	 * @throws ApiException if voting wasn't complete due to user errors.
+	 * @throws InvalidResponseException if server returns an invalid data.
+	 */
+	public SendVotePostResult onSendVotePost(SendVotePostData data) throws HttpException, ApiException,
 			InvalidResponseException {
 		return BuildConfig.Private.expr(data);
 	}

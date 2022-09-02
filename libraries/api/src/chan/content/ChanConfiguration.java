@@ -249,6 +249,13 @@ public class ChanConfiguration {
 		 * reporting with {@link ChanConfiguration#obtainReportingConfiguration(String)} then.</p>
 		 */
 		public boolean allowReporting;
+
+		/**
+		 * <p>Set {@code true} to allow user to like or dislike post, and see votes. You must implement
+		 * {@link ChanPerformer#onSendVotePost(chan.content.ChanPerformer.SendVotePostData)} and configure
+		 * reporting with {@link ChanConfiguration#obtainVotingConfiguration(String)} then.</p>
+		 */
+		public boolean allowVotes;
 	}
 
 	/**
@@ -481,6 +488,30 @@ public class ChanConfiguration {
 		 * <p>Default constructor for {@link Reporting}.</p>
 		 */
 		public Reporting() {
+			BuildConfig.Private.expr();
+		}
+	}
+
+	/**
+	 * <p>Voting configuration holder.</p>
+	 *
+	 * @see ChanPerformer.SendVotePostData
+	 */
+	public static final class Voting {
+		/**
+		 * <p>Set {@code true} to allow user to set like.</p>
+		 */
+		public boolean allowLike;
+
+		/**
+		 * <p>Set {@code true} to allow user to set dislike.</p>
+		 */
+		public boolean allowDislike;
+
+		/**
+		 * <p>Default constructor for {@link Voting}.</p>
+		 */
+		public Voting() {
 			BuildConfig.Private.expr();
 		}
 	}
@@ -875,6 +906,19 @@ public class ChanConfiguration {
 	 * @param boardName Board name string.
 	 */
 	public Reporting obtainReportingConfiguration(String boardName) {
+		return BuildConfig.Private.expr(boardName);
+	}
+
+	/**
+	 * <p>Calls every time client requests voting configuration. You must return new instance of {@link Voting}
+	 * with configuration for given {@code boardName}.</p>
+	 *
+	 * <p><strong>The {@code boardName} argument may be {@code null}!</strong> In this case you must return the widest
+	 * configuration for your chan.</p>
+	 *
+	 * @param boardName Board name string.
+	 */
+	public Reporting obtainVotingConfiguration(String boardName) {
 		return BuildConfig.Private.expr(boardName);
 	}
 

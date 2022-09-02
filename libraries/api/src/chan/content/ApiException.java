@@ -158,7 +158,7 @@ public final class ApiException extends Exception {
 	/**
 	 * <p>Flag: you have already voted in this post.</p>
 	 */
-	public static final int VOTE_POSTING_PROHIBITED = BuildConfig.Private.expr();
+	public static final int VOTE_ERROR_POSTING_PROHIBITED = BuildConfig.Private.expr();
 
 	/**
 	 * <p>Constructor for an {@link ApiException}.</p>

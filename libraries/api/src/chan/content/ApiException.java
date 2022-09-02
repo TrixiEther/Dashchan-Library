@@ -156,6 +156,11 @@ public final class ApiException extends Exception {
 	public static final int FLAG_KEEP_CAPTCHA = BuildConfig.Private.expr();
 
 	/**
+	 * <p>Flag: you have already voted in this post.</p>
+	 */
+	public static final int VOTE_POSTING_PROHIBITED = BuildConfig.Private.expr();
+
+	/**
 	 * <p>Constructor for an {@link ApiException}.</p>
 	 *
 	 * @param errorType Error type constant value.

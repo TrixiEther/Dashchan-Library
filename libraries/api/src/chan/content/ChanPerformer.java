@@ -1311,9 +1311,49 @@ public class ChanPerformer {
 	}
 
 	/**
+	 * <p>Arguments holder for {@link #onSendVotePost(SendVotePostData)}. Notify that this class
+	 * might be used as {@link HttpRequest.Preset}.</p>
+	 */
+	public static class SendVotePostData implements HttpRequest.Preset {
+		/**
+		 * <p>Board name argument.</p>
+		 */
+		public final String boardName = BuildConfig.Private.expr();
+
+		/**
+		 * <p>Thread number argument.</p>
+		 */
+		public final String threadNumber = BuildConfig.Private.expr();
+
+		/**
+		 * <p>List of reporting post numbers.</p>
+		 */
+		public final String postNumber = BuildConfig.Private.expr();
+
+		/**
+		 * <p>Set like on post.</p>
+		 */
+		public final boolean isLike = BuildConfig.Private.expr();
+
+		/**
+		 * <p>Set dislike on post.</p>
+		 */
+		public final boolean isDislike = BuildConfig.Private.expr();
+
+		private SendVotePostData() {
+			BuildConfig.Private.expr();
+		}
+	}
+
+	/**
 	 * <p>Result for {@link #onSendReportPosts(SendReportPostsData)}.</p>
 	 */
 	public static final class SendReportPostsResult {}
+
+	/**
+	 * <p>Result for {@link #onSendVotePost(SendVotePostData)}.</p>
+	 */
+	public static final class SendVotePostResult {}
 
 	/**
 	 * <p>Arguments holder for {@link #onSendAddToArchive(SendAddToArchiveData)}. Notify that this class

@@ -918,7 +918,7 @@ public class ChanConfiguration {
 	 *
 	 * @param boardName Board name string.
 	 */
-	public Reporting obtainVotingConfiguration(String boardName) {
+	public Voting obtainVotingConfiguration(String boardName) {
 		return BuildConfig.Private.expr(boardName);
 	}
 

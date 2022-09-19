@@ -1013,6 +1013,28 @@ public class ChanPerformer {
 		}
 
 		/**
+		 * <p>Stores resulting image byte array(4chan feature).
+		 * You must set this field with {@link CaptchaState#CAPTCHA} result if needed.</p>
+		 *
+		 * @param bytes array.
+		 * @return This object.
+		 */
+		public ReadCaptchaResult setImageBytes(byte[] bytes) {
+			return BuildConfig.Private.expr(bytes);
+		}
+
+		/**
+		 * <p>Stores resulting background image byte array(4chan feature).
+		 * You must set this field with {@link CaptchaState#CAPTCHA} result if needed.</p>
+		 *
+		 * @param bytes array.
+		 * @return This object.
+		 */
+		public ReadCaptchaResult setBackgroundBytes(byte[] bytes) {
+			return BuildConfig.Private.expr(bytes);
+		}
+
+		/**
 		 * <p>Use this method to make image field larger for user.</p>
 		 *
 		 * @param large True if captcha image is large.

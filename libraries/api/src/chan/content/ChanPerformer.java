@@ -1043,33 +1043,33 @@ public class ChanPerformer {
 	}
 
 	/**
-	 * <p>Extra captcha data for {@link #onReadCaptcha(ReadCaptchaData)}.</p>
+	 * <p>Extra data.</p>
 	 */
-	public static final class CaptchaExtraData {
-
+	public static class Extra {
+		/**
+		 * <p>Extra data key.</p>
+		 */
+		public final CaptchaExtraDataKey EXTRA_KEY = BuildConfig.Private.expr();
+		/**
+		 * <p>Extar data type.</p>
+		 */
+		public final  Class<?> EXTRA_TYPE = BuildConfig.Private.expr();
 		/**
 		 * <p>Extra data.</p>
 		 */
-		static class Extra {
-			/**
-			 * <p>Extra data key.</p>
-			 */
-			public final CaptchaExtraDataKey EXTRA_KEY = BuildConfig.Private.expr();
-			/**
-			 * <p>Extar data type.</p>
-			 */
-			public final  Class<?> EXTRA_TYPE = BuildConfig.Private.expr();
-			/**
-			 * <p>Extra data.</p>
-			 */
-			public final  Object EXTRA_DATA = BuildConfig.Private.expr();
-			/**
-			 * <p>Create extra data, need key type and data.</p>
-			 */
-			public Extra (CaptchaExtraDataKey key, Object data) {
-				BuildConfig.Private.expr(key, data);
-			}
+		public final  Object EXTRA_DATA = BuildConfig.Private.expr();
+		/**
+		 * <p>Create extra data, need key type and data.</p>
+		 */
+		public Extra (CaptchaExtraDataKey key, Object data) {
+			BuildConfig.Private.expr(key, data);
 		}
+	}
+
+	/**
+	 * <p>Extra captcha data for {@link #onReadCaptcha(ReadCaptchaData)}.</p>
+	 */
+	public static final class CaptchaExtraData {
 
 		/**
 		 * <p>Extra data list.</p>

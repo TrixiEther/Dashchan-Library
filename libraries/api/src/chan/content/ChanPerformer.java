@@ -17,6 +17,7 @@ import chan.http.MultipartEntity;
 import chan.library.api.BuildConfig;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -1013,28 +1014,6 @@ public class ChanPerformer {
 		}
 
 		/**
-		 * <p>Stores resulting image byte array(4chan feature).
-		 * You must set this field with {@link CaptchaState#CAPTCHA} result if needed.</p>
-		 *
-		 * @param bytes array.
-		 * @return This object.
-		 */
-		public ReadCaptchaResult setImageBytes(byte[] bytes) {
-			return BuildConfig.Private.expr(bytes);
-		}
-
-		/**
-		 * <p>Stores resulting background image byte array(4chan feature).
-		 * You must set this field with {@link CaptchaState#CAPTCHA} result if needed.</p>
-		 *
-		 * @param bytes array.
-		 * @return This object.
-		 */
-		public ReadCaptchaResult setBackgroundBytes(byte[] bytes) {
-			return BuildConfig.Private.expr(bytes);
-		}
-
-		/**
 		 * <p>Use this method to make image field larger for user.</p>
 		 *
 		 * @param large True if captcha image is large.
@@ -1043,6 +1022,87 @@ public class ChanPerformer {
 		public ReadCaptchaResult setLarge(boolean large) {
 			return BuildConfig.Private.expr(large);
 		}
+	}
+
+	/**
+	 * <p>Extra captcha data flags for {@link #onReadCaptcha(ReadCaptchaData)}.</p>
+	 */
+	public enum CaptchaExtraDataKey {
+		/**
+		 * <p>Is fourchan feature enabled or not.</p>
+		 */
+		EXPERIMENTAL_FOURCHAN_CAPTCHA_ENABLED,
+		/**
+		 * <p>Flag for the field that stores the bytes of the picture from 4chan.</p>
+		 */
+		IMAGE_BYTES,
+		/**
+		 * <p>Flag for the field that stores the bytes of the background picture from 4chan.</p>
+		 */
+		BACKGROUND_BYTES
+	}
+
+	/**
+	 * <p>Extra captcha data for {@link #onReadCaptcha(ReadCaptchaData)}.</p>
+	 */
+	public static final class CaptchaExtraData {
+
+		/**
+		 * <p>Extra data.</p>
+		 */
+		static class Extra {
+			/**
+			 * <p>Extra data key.</p>
+			 */
+			public final CaptchaExtraDataKey EXTRA_KEY = BuildConfig.Private.expr();
+			/**
+			 * <p>Extar data type.</p>
+			 */
+			public final  Class<?> EXTRA_TYPE = BuildConfig.Private.expr();
+			/**
+			 * <p>Extra data.</p>
+			 */
+			public final  Object EXTRA_DATA = BuildConfig.Private.expr();
+			/**
+			 * <p>Create extra data, need key type and data.</p>
+			 */
+			public Extra (CaptchaExtraDataKey key, Object data) {
+				BuildConfig.Private.expr(key, data);
+			}
+		}
+
+		/**
+		 * <p>Extra data list.</p>
+		 */
+		public final List<Extra> data = BuildConfig.Private.expr();
+
+		/**
+		 * <p>Create captcha extra data.</p>
+		 */
+		public CaptchaExtraData(){
+			BuildConfig.Private.expr();
+		}
+
+		/**
+		 * <p>Put extra captcha data to map.</p>
+		 *
+		 * @param key ExtraData key.
+		 * @param val Data value.
+		 */
+		public void put(CaptchaExtraDataKey key, Object val) {
+			BuildConfig.Private.expr(key, val);
+		}
+
+		/**
+		 * <p>Get captcha data to map.</p>
+		 *
+		 * @param key ExtraData key.
+		 * @return Extra value.
+		 */
+		public Extra get(CaptchaExtraDataKey key) {
+			return BuildConfig.Private.expr(key);
+		}
+
 	}
 
 	/**
@@ -1092,6 +1152,16 @@ public class ChanPerformer {
 		public String get(String key) {
 			return BuildConfig.Private.expr(key);
 		}
+
+		/**
+		 * <p>Get captcha extra data from map.</p>
+		 *
+		 * @return CaptchaExtraData value.
+		 */
+		public CaptchaExtraData getExtra() {
+			return BuildConfig.Private.expr();
+		}
+
 	}
 
 	/**

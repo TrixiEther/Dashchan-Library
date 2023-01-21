@@ -330,6 +330,12 @@ public class ChanConfiguration {
 		 * <p>Captcha validity.</p>
 		 */
 		public Validity validity;
+		
+		/**
+		 * <p>Captcha TTL if enabled.</p>
+		 */
+		public int ttl;
+		
 	}
 
 	/**

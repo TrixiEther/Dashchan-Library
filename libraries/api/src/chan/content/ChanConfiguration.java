@@ -169,6 +169,12 @@ public class ChanConfiguration {
 	 */
 	public static final String OPTION_LOCAL_MODE = BuildConfig.Private.expr();
 
+	/**
+	 * <p>Some imageboards have begun implementing AI agents that can respond to users posts.
+	 * This preference must be enabled to support custom client behavior configuration.</p>
+	 */
+	public static final String OPTION_AI_POSTING = BuildConfig.Private.expr();
+
 	public static final String CAPTCHA_TYPE_RECAPTCHA_2 = BuildConfig.Private.expr();
 	public static final String CAPTCHA_TYPE_RECAPTCHA_2_INVISIBLE = BuildConfig.Private.expr();
 	public static final String CAPTCHA_TYPE_HCAPTCHA = BuildConfig.Private.expr();

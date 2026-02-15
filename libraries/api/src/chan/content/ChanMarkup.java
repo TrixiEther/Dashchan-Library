@@ -99,6 +99,11 @@ public abstract class ChanMarkup {
 	public static final int TAG_HEADING = BuildConfig.Private.expr();
 
 	/**
+	 * AI posts.
+	 */
+	public static final int TAG_AI = BuildConfig.Private.expr();
+
+	/**
 	 * <p>Calls when client want to show posting activity.</p>
 	 *
 	 * @param boardName Board name string.
